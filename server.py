@@ -1,7 +1,12 @@
 from flask import Flask, request, render_template, make_response
 import xml.etree.ElementTree as ET
+import os
+import settings
+import logging
 
 app = Flask(__name__)
+
+logging.basicConfig(level=settings.LOGGING_LEVEL, format=settings.LOGGING_FORMAT)
 
 
 @app.errorhandler(400)
@@ -38,4 +43,5 @@ def ack(ru_ref, exercise_sid):
         return not_found("Couldn't parse respondent_id")
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    port = int(os.getenv("PORT"))
+    app.run(debug=True, host='0.0.0.0', port=port)
