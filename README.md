@@ -1,6 +1,6 @@
 # sdx-mock-receipt
 
-The sdx-mock-receipt service is used within the Office National for Statistics (ONS) for mocking the Survey Data Exchange (SDX) Receipting service.
+The sdx-mock-receipt service is used within the Office for National Statistics (ONS) for mocking the Survey Data Exchange (SDX) Receipting service.
 
 ## Installation
 
