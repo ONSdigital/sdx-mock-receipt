@@ -5,6 +5,7 @@
        <xs:sequence>
          <xs:element name="receipt_type" type="tns:receipt_types"></xs:element>
          <xs:element name="respondent_id" type="xs:string"></xs:element>
+         <xs:element name="tx_id" type="xs:string"></xs:element>
        </xs:sequence>
      </xs:complexType>
    </xs:element>
