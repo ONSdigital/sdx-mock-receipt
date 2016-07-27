@@ -27,16 +27,12 @@ def ack(ru_ref, exercise_sid):
                      .format(ru_ref=ru_ref, exercise_sid=exercise_sid))
 
     data = request.get_data()
+    app.logger.debug("Received XML Receipt: {0}".format(data))
 
-    tree = ET.fromstring(data)
+    receipt_xml = ET.fromstring(data)
     ns = {'receipt': 'http://ns.ons.gov.uk/namespaces/resources/receipt'}
 
-    tx = tree.find('receipt:tx_id', ns)
-    tx_id = tx.text
-    if tx_id:
-        app.logger.debug("Confirmed receipt for: tx_id {0}".format(tx_id))
-
-    respondent = tree.find('receipt:respondent_id', ns)
+    respondent = receipt_xml.find('receipt:respondent_id', ns)
     respondent_id = respondent.text
 
     if respondent_id:
