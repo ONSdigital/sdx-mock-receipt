@@ -27,7 +27,7 @@ def ack(ru_ref, exercise_sid):
                      .format(ru_ref=ru_ref, exercise_sid=exercise_sid))
 
     data = request.get_data()
-    app.logger.debug("Received XML Receipt: {0}".format(data))
+    app.logger.debug("Received XML Receipt: {0}".format(data.decode('UTF8')))
 
     receipt_xml = ET.fromstring(data)
     ns = {'receipt': 'http://ns.ons.gov.uk/namespaces/resources/receipt'}
