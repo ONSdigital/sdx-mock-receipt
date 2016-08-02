@@ -72,4 +72,5 @@ def ack(ru_ref, exercise_sid):
 
 if __name__ == '__main__':
     port = int(os.getenv("PORT"))
-    app.run(debug=True, host='0.0.0.0', port=port)
+    context = ('/certs/dev.cer', '/certs/dev.key')
+    app.run(debug=True, host='0.0.0.0', port=port, ssl_context=context)
