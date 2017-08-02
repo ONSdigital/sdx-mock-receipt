@@ -6,7 +6,7 @@ The sdx-mock-receipt service is used within the Office for National Statistics (
 
 Using virtualenv and pip, create a new environment and install within using:
 
-    $ pip install -r test_requirements.txt
+    $ pip install -r requirements.txt
 
 It's also possible to install within a container using docker. From the sdx-mock-receipt directory:
 
