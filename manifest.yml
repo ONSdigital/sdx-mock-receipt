@@ -1,0 +1,4 @@
+applications:
+- name: sdx-mock-receipt
+  buildpack: python_buildpack
+
