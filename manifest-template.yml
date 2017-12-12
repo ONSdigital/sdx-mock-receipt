@@ -1,0 +1,12 @@
+applications:
+- name: sdx-mock-receipt-SPACE
+  buildpack: python_buildpack
+  instances: INSTANCES
+  host: sdx-mock-receipt-SPACE
+  timeout: 180
+  memory: 512M
+
+  env:
+    RECEIPT_USER: RECEIPTUSER
+    RECEIPT_PASS: RECEIPTPASS
+
