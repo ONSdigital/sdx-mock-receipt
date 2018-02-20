@@ -41,6 +41,9 @@ def not_found(error):
     resp.headers['Content-Type'] = 'application/vnd.ons.error+xml'
     return resp
 
+@app.route('/receipts', methods=['POST'])
+def receipt():
+    return make_response('{"status": "ok"', 200)
 
 @app.route('/reportingunits/<ru_ref>/collectionexercises/<exercise_sid>/receipts', methods=['POST'])
 @requires_auth
