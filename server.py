@@ -1,6 +1,6 @@
-import os
 from functools import wraps
 import logging
+import os
 import xml.etree.ElementTree as ET
 
 from flask import Flask, make_response, request, render_template
@@ -59,10 +59,9 @@ def receipt():
 def ack(ru_ref, exercise_sid):
 
     if len(ru_ref) != 11 or len(exercise_sid) != 11:
-        logger.warning("Got a invalid ru_ref/exercise_sid".format(ru_ref=ru_ref, exercise_sid=exercise_sid))
+        logger.warning("Got an invalid ru_ref/exercise_sid", ru_ref=ru_ref, exercise_sid=exercise_sid)
 
-    logger.debug("Got a response: Reporting Unit {ru_ref} - Exercise Id {exercise_sid}"
-                 .format(ru_ref=ru_ref, exercise_sid=exercise_sid))
+    logger.debug("Got a response", ru_ref=ru_ref, exercise_sid=exercise_sid)
 
     data = request.get_data()
     logger.debug("Received Headers: {0}".format(request.headers))
@@ -75,8 +74,7 @@ def ack(ru_ref, exercise_sid):
     respondent_id = respondent.text
 
     if respondent_id:
-        logger.debug("Confirmed receipt for: respondent {respondent_id}"
-                     .format(respondent_id=respondent_id))
+        logger.debug("Confirmed receipt for respondent", respondent_id=respondent_id)
         return respondent_id, 201
     else:
         return not_found("Couldn't parse respondent_id")
