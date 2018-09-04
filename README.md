@@ -30,10 +30,15 @@ If you've built the image under docker, you can start using the following:
 
     docker run -p 5000:5000 sdx-mock-receipt
 
-sdx-mock-receipt exposes two endpoints:
-  - '/reportingunits/{ru_ref}/collectionexercises/{exercise_sid}/receipts'
-    - This returns a xml error response with status 400 (found under templates) to indicate whether the endpoint arguments are valid. If the response is successful, it responds with a 201 status.
+sdx-mock-receipt exposes one endpoint:
   - '/receipts'
-    - This simply returns 200 and "status": "ok" when it receives a HTTP POST request.
+    - This simply returns 201 and "status": "ok" when it receives a HTTP POST request.
 
 By default this service binds to port 5000 on localhost.
+
+## Linting
+
+To run flake8 against the repo, use:
+```bash
+    make test
+```
